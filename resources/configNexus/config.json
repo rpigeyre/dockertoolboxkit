@@ -1,5 +1,5 @@
 {
   "name": "installdp",
   "type": "groovy",
-  "content": "repository.createDockerProxy('dockerProxy', 'https://registry-1.docker.io/v2/', 'REGISTRY', null, 5000, null, 'default', true, true )"
+  "content": "repository.createDockerProxy('dockerProxy', 'https://registry-1.docker.io', 'REGISTRY', null, 5000, null, 'default', true, true )"
 }

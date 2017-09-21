@@ -3,7 +3,6 @@ echo "[+] Stopping DockerToolKit"
 cd ..\resources
 
 rem Stop
-rem docker-compose stop nexus proxy
-docker-compose stop nexus
+docker-compose stop nexus proxy
 
 pause

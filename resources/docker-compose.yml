@@ -8,25 +8,24 @@ services:
       - nexus-data:/nexus-data
     ports:
       - 8081:8081
-      - 5000:5000
       
   # SSL Proxy
-#  proxy:
-#    build: proxy
-#    image: dockertoolkit/nexus-proxyssl
-#    depends_on:
-#      - build-ssl-cert
-#    ports:
-#      - 5002:5002
-#    volumes:
-#      - ssl-data:/ssl-data
+  proxy:
+    build: proxy
+    image: dockertoolkit/nexus-proxyssl
+    depends_on:
+      - build-ssl-cert
+    ports:
+      - 5002:5002
+    volumes:
+      - ssl-data:/ssl-data
   
   # Key generator
-#  build-ssl-cert:
-#    build: buildcert
-#    image: dockertoolkit/nexus-ssl-cert-gen
-#    volumes:
-#      - ssl-data:/ssl-data
+  build-ssl-cert:
+    build: buildcert
+    image: dockertoolkit/nexus-ssl-cert-gen
+    volumes:
+      - ssl-data:/ssl-data
       
   # Key generator
   config-nexus:
@@ -35,4 +34,4 @@ services:
 
 volumes:
   nexus-data:    { external: { name: nexus-data } }
-#  ssl-data:    { external: { name: ssl-data } }
+  ssl-data:    { external: { name: ssl-data } }
